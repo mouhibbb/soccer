@@ -1,0 +1,124 @@
+<section class="reservation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <h2 style="margin-top: 20mm;">Dashboard Admin</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="reservation_part_iner">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Admins and Clients</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Players</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-teams-tab" data-bs-toggle="pill" data-bs-target="#pills-match" type="button" role="tab" aria-controls="pills-teams" aria-selected="false">Teams</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-match-tab" data-bs-toggle="pill" data-bs-target="#pills-teams" type="button" role="tab" aria-controls="pills-match" aria-selected="false">Matchs</button>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <table class="table">
+                                
+                                    <tr>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Tel</th>
+                                        <th>Role</th>
+                                        <th>Action</th>
+                                    </tr>
+                                                                
+                                    <tr *ngFor="let a of users">
+                                        <td>{{a.firstName| uppercase}}</td>
+                                        <td>{{a.lastName | reverse}}</td>
+                                        <td>{{a.email}}</td>
+                                        <td>{{a.tel}}</td>
+                                        <td [ngStyle]="{color:getColor(a.role)}">{{a.role}}</td>
+                                        <td><button type="button" class="btn btn-outline-primary" (click)="displayUser(a.id,a.role)">Display</button>
+                                            <button type="button" class="btn btn-outline-success" (click)="edit(a.id)">Edit</button>
+                                            <button type="button" class="btn btn-outline-warning" (click)="deleteUser(a.id)">Delete</button>
+                                        </td>
+                                    </tr>
+                                
+                              </table>
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <table class="table">
+                                <tr>
+                                    <th>first Name</th>
+                                    <th>last Name</th>
+                                    <th>Post</th>
+                                    <th>Number Tshirt</th>
+                                    <th>Team</th>
+                                    <th>action</th>
+                                </tr>
+                                <tr *ngFor="let a of players">
+                                    <td>{{a.firstName}}</td>
+                                    <td>{{a.lastName}}</td>
+                                    <td>{{a.post}}</td>
+                                    <td>{{a.nbTshirt}}</td>
+                                    <td>{{a.team}}</td>
+                                    <td><button type="button" class="btn btn-outline-primary" (click)="displayUser(a.id,a.role)">Display</button>
+                                        <button type="button" class="btn btn-outline-success">Edit</button>
+                                        <button type="button" class="btn btn-outline-warning"(click)=deletePlayer(a.id) >Delete</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    
+                        <div class="tab-pane fade" id="pills-teams" role="tabpanel" aria-labelledby="pills-teams-tab">
+                            <table class="table">  
+                                    <tr>
+                                        <th>Team One</th>
+                                        <th>Team Two</th>
+                                        <th>Score One</th>
+                                        <th>Score Two</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <tr *ngFor="let a of matchs">
+                                        <td>{{a.teamOne}}</td>
+                                        <td>{{a.teamTwo}}</td>
+                                        <td>{{a.scoreOne}}</td>
+                                        <td>{{a.scoreTwo}}</td>
+                                        <td><button type="button" class="btn btn-outline-primary" (click)="displayMatch(a.id)">Display</button>
+                                            <button type="button" class="btn btn-outline-success">Edit</button>
+                                            <button type="button" class="btn btn-outline-warning">Delete</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                        </div>
+                        <div class="tab-pane fade" id="pills-match" role="tabpanel" aria-labelledby="pills-match-tab">
+                            <table class="table">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Team</th>
+                                    <th>Description</th>
+                                    <th>action</th>
+                                </tr>
+                                <tr *ngFor="let a of teams">
+                                    <td>{{a.id}}</td>
+                                    <td>{{a.newTeam}}</td>
+                                    <td>{{a.description}}</td>
+                                    <td><button type="button" class="btn btn-outline-primary" (click)="displayUser(a.id,a.role)">Display</button>
+                                        <button type="button" class="btn btn-outline-success" (click)="editTeam(a.id)">Edit</button>
+                                        <button type="button" class="btn btn-outline-warning"(click)="deleteTeam(a.id)">Delete</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                      </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

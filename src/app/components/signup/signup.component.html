@@ -1,0 +1,105 @@
+ <section class="reservation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <h2 style="margin-top: 20mm;">Sign Up</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="reservation_part_iner">
+                    <form [formGroup]="signUpForm" style="margin-top: 10mm;">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name *" >
+                            </div>
+                                <div *ngIf="signUpForm.controls['firstName'].invalid && (signUpForm.controls['firstName'].dirty || signUpForm.controls['firstName'].touched)">
+                                    <div *ngIf="signUpForm.controls['firstName'].errors.required" class="text-danger">
+                                        First Name required
+                                    </div>
+                                    <div *ngIf="signUpForm.controls['firstName'].errors.minlength" class="text-danger">
+                                        First Name must be at least 5 characters
+                                    </div>
+                                </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name *" >
+                            </div>
+                            <div *ngIf="signUpForm.controls['lastName'].invalid && (signUpForm.controls['lastName'].dirty || signUpForm.controls['lastName'].touched)">
+                                <div *ngIf="signUpForm.controls['lastName'].errors.required" class="text-danger">
+                                    Last Name required
+                                </div>
+                                <div *ngIf="signUpForm.controls['lastName'].errors.minlength" class="text-danger">
+                                    Last Name must be at least 6 chacarters
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" formControlName="email" placeholder="Email *">
+                            </div>
+                                <div *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)">
+                                    <div *ngIf="signUpForm.controls['email'].errors.required" class="text-danger">
+                                        email required
+                                    </div>
+                                    <div *ngIf="signUpForm.controls['email'].errors.email" class="text-danger">
+                                        email invalid
+                                    </div>
+
+                                    
+                                </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" formControlName="password" placeholder="Password *">
+                            </div>
+                                <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)">
+                                    <div *ngIf="signUpForm.controls['password'].errors.required" class="text-danger">
+                                        Password is required
+                                    </div>
+                                    <div *ngIf="signUpForm.controls['password'].errors.minlength" class="text-danger">
+                                        password must be at least 8 characters
+                                    </div>
+                                    <div *ngIf="signUpForm.controls['password'].errors.maxlength" class="text-danger">
+                                        password must be under then 16 characters
+                                    </div>
+                                </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password*">
+                            </div>
+                                <div *ngIf="signUpForm.controls['confirmPassword'].invalid && (signUpForm.controls['confirmPassword'].dirty || signUpForm.controls['confirmPassword'].touched)">
+                                    <div *ngIf="signUpForm.controls['confirmPassword'].errors.required" class="text-danger">
+                                        confirm Password is required
+                                    </div>
+                                    <div *ngIf="signUpForm.controls['confirmPassword'].errors.mustMatch" class="text-danger">
+                                        Confirm Password Must Match password
+                                    </div>
+                                </div>
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" formControlName="tel" placeholder="Tel *">
+                            </div>        
+                                <div *ngIf="signUpForm.controls['tel'].invalid && (signUpForm.controls['tel'].touched || signUpForm.controls['tel'].dirty)">
+                                    <div *ngIf="signUpForm.controls['tel'].errors.required" class="text-danger">
+                                        Tel required
+                                    </div>
+                                    <div *ngIf="signUpForm.controls['tel'].errors.minlength" class="text-danger">
+                                        password must be at least 8 number
+                                    </div>
+                                    <div *ngIf="signUpForm.controls['tel'].errors.maxlength" class="text-danger">
+                                        password must be under then 14 number
+                                    </div>
+                                </div>               
+                                            
+                        </div>
+
+
+                        <div class="regerv_btn">
+                            <button class="btn btn-success" (click)="signUp(signUpForm.value)">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

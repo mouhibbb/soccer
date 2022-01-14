@@ -1,0 +1,51 @@
+<section class="reservation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <h2 style="margin-top: 20mm;">New Player</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="reservation_part_iner">
+                    <form #newPlayerForm="ngForm" (ngSubmit)="addNewPlayer()" style="margin-top: 10mm;">
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control"  placeholder="First Name *"[(ngModel)]="player.firstName" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control"  placeholder="Last Name *"[(ngModel)]="player.lastName" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-12" >
+                                <select class="form-control" placeholder="Post *" [(ngModel)]="player.post" [ngModelOptions]="{standalone:true}" style="background-color: darkgray;">
+                                    <option value="attaquant">attaquant</option>
+                                    <option value="deffenceur">deffenceur</option>
+                                    <option value="milieu">milieu</option>
+                                    <option value="gardient">gardient</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control"  placeholder="Number Tshirt *"[(ngModel)]="player.nbTshirt" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6" >
+                                <select class="form-control" [(ngModel)]="player.team" [ngModelOptions]="{standalone:true}">
+                                    <option value="{{t.id}}" *ngFor="let t of teams">{{t.newTeam}}</option>
+                                </select>
+                            </div>
+                            
+                                            
+                        </div>
+
+
+                        <div class="regerv_btn">
+                            <button class="btn btn-success" style="width: 120px;">Join</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

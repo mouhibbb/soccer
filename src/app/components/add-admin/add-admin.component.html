@@ -1,0 +1,45 @@
+<section class="reservation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <h2 style="margin-top: 20mm;">{{title}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="reservation_part_iner">
+                    <form #addAdminForm="ngForm" (ngSubmit)="addAdmin()" style="margin-top: 10mm;">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="firstname" placeholder="First Name *" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="lastname" placeholder="Last Name *" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" id="email" placeholder="Email *"[(ngModel)]="user.email" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" id="password" placeholder="Password *"[(ngModel)]="user.password" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password*"[(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" id="tel" placeholder="Tel *"[(ngModel)]="user.tel" [ngModelOptions]="{standalone:true}">
+                            </div>                       
+                                            
+                        </div>
+
+
+                        <div class="regerv_btn">
+                            <button class="btn btn-success" style="width: 120px;">{{title}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
