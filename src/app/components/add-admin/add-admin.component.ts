@@ -9,8 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddAdminComponent implements OnInit {
   user: any = {}
-
-  admin:any
+pro :any
   addAdminForm: FormGroup
   id: any
   title: string
